@@ -1,6 +1,6 @@
 /** @type {import('tailwindcss').Config} */
 module.exports = {
-  content: ["./app/**/*.{js,jsx,ts,tsx}"],
+  content: ["./app/**/*.{js,jsx,ts,tsx}", "./components/**/*.{js,jsx,ts,tsx}"],
   presets: [require("nativewind/preset")],
   theme: {
     extend: {
@@ -19,6 +19,21 @@ module.exports = {
         "jakarta-medium-italic": ["PlusJakartaSans-MediumItalic"],
         "jakarta-semibold": ["PlusJakartaSans-SemiBold"],
         "jakarta-semibold-italic": ["PlusJakartaSans-SemiBoldItalic"],
+      },
+      fontSize: {
+        'xs': ['2.775vw', { lineHeight: '3.7vw' }],     // font: 3.7vw * 12/16, line: 3.7vw * 16/16
+        'sm': ['3.2375vw', { lineHeight: '4.625vw' }],  // font: 3.7vw * 14/16, line: 3.7vw * 20/16
+        'base': ['3.7vw', { lineHeight: '5.55vw' }],    // font: 3.7vw * 16/16, line: 3.7vw * 24/16
+        'lg': ['4.1625vw', { lineHeight: '6.475vw' }],  // font: 3.7vw * 18/16, line: 3.7vw * 28/16
+        'xl': ['4.625vw', { lineHeight: '6.475vw' }],   // font: 3.7vw * 20/16, line: 3.7vw * 28/16
+        '2xl': ['5.55vw', { lineHeight: '7.4vw' }],     // font: 3.7vw * 24/16, line: 3.7vw * 32/16
+        '3xl': ['6.9375vw', { lineHeight: '8.325vw' }], // font: 3.7vw * 30/16, line: 3.7vw * 36/16
+        '4xl': ['8.325vw', { lineHeight: '9.25vw' }],   // font: 3.7vw * 36/16, line: 3.7vw * 40/16
+        '5xl': ['11.1vw', { lineHeight: '11.1vw' }],    // font: 3.7vw * 48/16, line: 3.7vw * 48/16
+        '6xl': ['13.875vw', { lineHeight: '13.875vw' }],// font: 3.7vw * 60/16, line: 3.7vw * 60/16
+        '7xl': ['16.65vw', { lineHeight: '16.65vw' }],  // font: 3.7vw * 72/16, line: 3.7vw * 72/16
+        '8xl': ['22.2vw', { lineHeight: '22.2vw' }],    // font: 3.7vw * 96/16, line: 3.7vw * 96/16
+        '9xl': ['29.6vw', { lineHeight: '29.6vw' }],    // font: 3.7vw * 128/16, line: 3.7vw * 128/16
       },
       colors: {
         primary: {
