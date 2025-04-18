@@ -3,7 +3,7 @@ import { Redirect } from "expo-router";
 export default function Index() {
   const isSignedIn = false;
 
-  // if (isSignedIn) return <Redirect href={"/(root)/(tabs)/home"} />;
+  if (isSignedIn) return <Redirect href={"/(main)/(tabs)/home"} />;
 
   return <Redirect href={"/(auth)/welcome"} />;
 }
