@@ -2,6 +2,8 @@ import { Stack } from "expo-router";
 import { useFonts } from "expo-font";
 import * as SplashScreen from "expo-splash-screen";
 import { useEffect } from "react";
+import { ClerkProvider } from "@clerk/clerk-expo";
+import { tokenCache } from "@clerk/clerk-expo/token-cache";
 import "./global.css";
 
 // Keep the splash screen visible while we fetch resources
@@ -36,10 +38,12 @@ export default function RootLayout() {
   }
 
   return (
-    <Stack screenOptions={{ headerShown: false }}>
-      <Stack.Screen name="index" options={{ title: "Index" }} />
-      <Stack.Screen name="(auth)" options={{ title: "Auth" }} />
-      <Stack.Screen name="(main)" options={{ title: "Main" }} />
-    </Stack>
+    <ClerkProvider tokenCache={tokenCache}>
+      <Stack screenOptions={{ headerShown: false }}>
+        <Stack.Screen name="index" options={{ title: "Index" }} />
+        <Stack.Screen name="(auth)" options={{ title: "Auth" }} />
+        <Stack.Screen name="(main)" options={{ title: "Main" }} />
+      </Stack>
+    </ClerkProvider>
   );
 }
