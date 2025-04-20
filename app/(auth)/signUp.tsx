@@ -107,6 +107,7 @@ export default function SignUp() {
                 resizeMode="contain"
               />
             )}
+            autoCapitalize="none"
             value={form.email}
             onChangeText={(value) => setForm({ ...form, email: value })}
           />
@@ -156,6 +157,7 @@ export default function SignUp() {
               <CustomInputField
                 label=""
                 placeholder="Your code"
+                inputMode="numeric"
                 Icon={() => (
                   <Image
                     source={icons.lock}
@@ -163,7 +165,7 @@ export default function SignUp() {
                     resizeMode="contain"
                   />
                 )}
-                value={form.password}
+                value={code}
                 onChangeText={(value) => setCode(value)}
               />
               <CustomButton

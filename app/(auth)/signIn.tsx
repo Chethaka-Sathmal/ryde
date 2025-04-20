@@ -70,6 +70,7 @@ export default function SignIn() {
                 resizeMode="contain"
               />
             )}
+            autoCapitalize="none"
             value={form.email}
             onChangeText={(value) => setForm({ ...form, email: value })}
           />
