@@ -45,7 +45,7 @@ export default function CustomButton({
       onPress={onPress}
       className={`flex items-center justify-center ${getBgVariantStyle(
         bgVariant
-      )} w-[90vw] h-[6vh] rounded-full py-[1vh] ${className}`}
+      )} w-full h-[6vh] rounded-full py-[1vh] ${className}`}
     >
       <View className="flex-row items-center">
         {IconLeft && <IconLeft />}

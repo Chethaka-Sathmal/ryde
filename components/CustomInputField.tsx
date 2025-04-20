@@ -30,19 +30,22 @@ export default function CustomInputField({
   return (
     <KeyboardAvoidingView
       behavior={Platform.OS === "ios" ? "padding" : "height"}
+      className="w-full"
     >
       <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
         <View className={`mt-[3vh] w-full ${containerStyles}`}>
-          <Text className="text-black font-jakarta-semibold text-xl">
-            {label}
-          </Text>
+          {label && (
+            <Text className="text-black font-jakarta-semibold text-xl">
+              {label}
+            </Text>
+          )}
           <View
             className={`flex-row rounded-full bg-neutral-100 px-[3vw] mt-[1vh] ${inputFieldStyles}`}
           >
             {Icon && <Icon />}
             <TextInput
               {...props}
-              className={`mx-[2vw] text-lg ${inputTextStyles}`}
+              className={`flex-1 text-lg ${inputTextStyles}`}
               secureTextEntry={secureTextEntry}
             />
           </View>
