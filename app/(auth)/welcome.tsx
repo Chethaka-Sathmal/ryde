@@ -46,15 +46,17 @@ export default function Welcome() {
           </View>
         ))}
       </Swiper>
-      <CustomButton
-        title={isLastSlide ? "Sign Up" : "Next"}
-        className="mt-[5vh] mb-[10vh]"
-        onPress={() => {
-          isLastSlide
-            ? router.replace("/(auth)/signUp")
-            : swiperRef.current?.scrollBy(1);
-        }}
-      />
+      <View className="px-[5vw] w-full">
+        <CustomButton
+          title={isLastSlide ? "Sign Up" : "Next"}
+          className="mt-[5vh] mb-[10vh]"
+          onPress={() => {
+            isLastSlide
+              ? router.replace("/(auth)/signUp")
+              : swiperRef.current?.scrollBy(1);
+          }}
+        />
+      </View>
     </SafeAreaView>
   );
 }
