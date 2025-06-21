@@ -2,6 +2,11 @@
 @tailwind components;
 @tailwind utilities;
 
+/**
+ * Controls your component styling with Tailwind classes
+ * Upon change update lib/constants.ts as well
+ */
+
 @layer base {
   :root {
     --background: 0 0% 100%;
