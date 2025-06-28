@@ -54,14 +54,19 @@ export default function RootLayout() {
   return (
     <ThemeProvider value={LIGHT_THEME}>
       <StatusBar style={"dark"} />
-      <Stack screenOptions={{ contentStyle: { padding: 10 } }}>
+      <Stack
+        screenOptions={{ contentStyle: { padding: 10 }, headerShown: false }}
+      >
         <Stack.Screen
           name="index"
           options={{
             title: "Starter Base",
             headerRight: () => <ThemeToggle />,
+            headerShown: false,
           }}
         />
+        <Stack.Screen name="(auth)" />
+        <Stack.Screen name="(main)" />
       </Stack>
       <PortalHost />
     </ThemeProvider>
