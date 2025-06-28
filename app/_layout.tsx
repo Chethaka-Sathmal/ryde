@@ -1,30 +1,26 @@
 import "~/global.css";
 
-import {
-  // DarkTheme,
-  DefaultTheme,
-  Theme,
-  ThemeProvider,
-} from "@react-navigation/native";
+import { useEffect } from "react";
+import { DefaultTheme, Theme, ThemeProvider } from "@react-navigation/native";
 import { Stack } from "expo-router";
 import { StatusBar } from "expo-status-bar";
 import * as React from "react";
 import { Appearance, Platform, View } from "react-native";
 import { NAV_THEME } from "~/lib/constants";
-// import { useColorScheme } from "~/lib/useColorScheme";
 import { PortalHost } from "@rn-primitives/portal";
 import { ThemeToggle } from "~/components/ThemeToggle";
 import { setAndroidNavigationBar } from "~/lib/android-navigation-bar";
+import {
+  PlusJakartaSans_400Regular,
+  PlusJakartaSans_600SemiBold,
+  useFonts,
+} from "@expo-google-fonts/plus-jakarta-sans";
+import * as SplashScreen from "expo-splash-screen";
 
 const LIGHT_THEME: Theme = {
   ...DefaultTheme,
   colors: NAV_THEME.light,
 };
-
-// const DARK_THEME: Theme = {
-//   ...DarkTheme,
-//   colors: NAV_THEME.dark,
-// };
 
 export {
   // Catch any errors thrown by the Layout component.
@@ -40,14 +36,24 @@ const usePlatformSpecificSetup = Platform.select({
 export default function RootLayout() {
   usePlatformSpecificSetup();
 
-  // const { isDarkColorScheme } = useColorScheme(); //set up dark theme later
+  const [loaded, error] = useFonts({
+    PlusJakartaSans_400Regular,
+    PlusJakartaSans_600SemiBold,
+  });
+
+  useEffect(() => {
+    if (loaded || error) {
+      SplashScreen.hideAsync();
+    }
+  }, [loaded, error]);
+
+  if (!loaded && !error) {
+    return null;
+  }
 
   return (
-    // <ThemeProvider value={isDarkColorScheme ? DARK_THEME : LIGHT_THEME}>
     <ThemeProvider value={LIGHT_THEME}>
-      {/* <StatusBar style={isDarkColorScheme ? "light" : "dark"} /> */}
       <StatusBar style={"dark"} />
-      {/* global padding for every page */}
       <Stack screenOptions={{ contentStyle: { padding: 10 } }}>
         <Stack.Screen
           name="index"

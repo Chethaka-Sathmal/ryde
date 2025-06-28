@@ -1,9 +1,10 @@
-import { Text, View } from "react-native";
+import { Text, SafeAreaView } from "react-native";
 
 export default function Home() {
   return (
-    <View className="bg-foreground">
+    <SafeAreaView className="bg-foreground">
+      <Text style={{ fontFamily: "PlusJakartaSans_400Regular" }}>Hello</Text>
       <Text>Hello</Text>
-    </View>
+    </SafeAreaView>
   );
 }
